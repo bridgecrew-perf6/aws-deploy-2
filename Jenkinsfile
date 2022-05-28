@@ -6,7 +6,7 @@ pipeline {
         stage ('Init'){
             steps{
                 sh 'cd /opt/jenkins-auto/'
-                sh 'git pull'
+                sh 'if [[ ! -d /opt/jenkins-auto/aws-deploy ]];then git clone https://github.com/jfneto7/aws-deploy.git; else git pull fi'
                 sh 'cd /opt/jenkins-auto/aws-deploy && cp terraform* /opt/terraform_projects'
             }
         }
