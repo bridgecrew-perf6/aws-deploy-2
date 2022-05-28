@@ -5,9 +5,9 @@ pipeline {
         
         stage ('Init'){
             steps{
-                sh 'cd /opt/jenkins-auto/aws-deploy'
+                sh 'cd /opt/jenkins-auto/'
                 sh 'git pull'
-                sh 'cp terraform* /opt/terraform_projects'
+                sh 'cd /opt/jenkins-auto/aws-deploy && cp terraform* /opt/terraform_projects'
             }
         }
         
